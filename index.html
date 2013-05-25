@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
+        <title>Guess a Number!</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
@@ -44,6 +44,26 @@
             <div class="hero-unit">
                 <h1>Guess a number!</h1>
                 <p>Pick a range of numbers you want to guess from, and number of your attempts. This will affect your final score.</p>
+                <form>
+                    <div class="control-group">
+                        <label for="min" class="icon-arrow-down"></label>
+                        <small>500</small>
+                        <div class="input-prepend input-append">
+                            <span class="add-on">0</span><input id="min" type="range" max="1000" /><span class="add-on">1000</span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label for="max" class="icon-arrow-up"></label>
+                        <small>500</small>
+                        <div class="input-prepend input-append">
+                            <span class="add-on">0</span><input id="max" type="range" max="1000" /><span class="add-on">1000</span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label for="attempts" class="icon-refresh"></label>
+                        <input type="text" value="10" class="input-small" />
+                    </div>
+                </form>
                 <p><a class="btn btn-primary btn-large">Start Game &raquo;</a></p>
             </div>
 
