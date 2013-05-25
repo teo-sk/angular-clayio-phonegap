@@ -22,7 +22,7 @@
 
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
-    <body>
+    <body ng-app="game">
         <!--[if lt IE 9]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
@@ -40,7 +40,7 @@
             </div>
         </div>
 
-        <div class="container">
+        <div class="container" ng-controller="GameCtrl">
 
             <!-- Main hero unit for a primary marketing message or call to action -->
             <div class="hero-unit">
@@ -49,21 +49,21 @@
                 <form>
                     <div class="control-group">
                         <label for="min" class="icon-arrow-down"></label>
-                        <small>500</small>
+                        <small ng-bind="gameState.settings.min">500</small>
                         <div class="input-prepend input-append">
-                            <span class="add-on">0</span><input id="min" type="range" max="1000" /><span class="add-on">1000</span>
+                            <span class="add-on">0</span><input id="min" ng-model="gameState.settings.min" type="range" max="1000" /><span class="add-on">1000</span>
                         </div>
                     </div>
                     <div class="control-group">
                         <label for="max" class="icon-arrow-up"></label>
-                        <small>500</small>
+                        <small ng-bind="gameState.settings.max">500</small>
                         <div class="input-prepend input-append">
-                            <span class="add-on">0</span><input id="max" type="range" max="1000" /><span class="add-on">1000</span>
+                            <span class="add-on">0</span><input id="max" ng-model="gameState.settings.max" type="range" max="1000" /><span class="add-on">1000</span>
                         </div>
                     </div>
                     <div class="control-group">
                         <label for="attempts" class="icon-refresh"></label>
-                        <input type="text" value="10" class="input-small" />
+                        <input type="text" value="10" class="input-small" ng-model="gameState.settings.attempts" />
                     </div>
                 </form>
                 <p><a class="btn btn-primary btn-large">Start Game &raquo;</a></p>
@@ -78,6 +78,6 @@
 
         <script src="js/vendor/bootstrap.min.js"></script>
 
-        <script src="js/main.js"></script>
+        <script src="js/game.js"></script>
     </body>
 </html>
