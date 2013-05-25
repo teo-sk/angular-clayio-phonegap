@@ -43,7 +43,7 @@
         <div class="container" ng-controller="GameCtrl">
 
             <!-- Main hero unit for a primary marketing message or call to action -->
-            <div class="hero-unit">
+            <div class="hero-unit" ng-hide="gameState.started">
                 <h1>Guess a number!</h1>
                 <p>Pick a range of numbers you want to guess from, and number of your attempts. This will affect your final score.</p>
                 <form>
@@ -66,7 +66,11 @@
                         <input type="text" value="10" class="input-small" ng-model="gameState.settings.attempts" />
                     </div>
                 </form>
-                <p><a class="btn btn-primary btn-large">Start Game &raquo;</a></p>
+                <p><a class="btn btn-primary btn-large" ng-click="startGame()">Start Game &raquo;</a></p>
+            </div>
+
+            <div class="hero-unit" ng-show="gameState.started">
+                <h1>Game on!</h1>
             </div>
 
         </div> <!-- /container -->
