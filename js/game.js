@@ -8,7 +8,7 @@ function GameCtrl($scope) {
 
   $scope.gameState.started = false;
   $scope.gameState.settings = {};
-  $scope.gameState.settings.min = 0;
+  $scope.gameState.settings.min = 100;
   $scope.gameState.settings.max = 200;
   $scope.gameState.settings.attempts = 10;
 }

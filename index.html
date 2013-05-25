@@ -51,14 +51,14 @@
                         <label for="min" class="icon-arrow-down"></label>
                         <small ng-bind="gameState.settings.min">500</small>
                         <div class="input-prepend input-append">
-                            <span class="add-on">0</span><input id="min" ng-model="gameState.settings.min" type="range" max="1000" /><span class="add-on">1000</span>
+                            <span class="add-on">0</span><input id="min" step="10" ng-model="gameState.settings.min" type="range" max="1000" /><span class="add-on">1000</span>
                         </div>
                     </div>
                     <div class="control-group">
                         <label for="max" class="icon-arrow-up"></label>
                         <small ng-bind="gameState.settings.max">500</small>
                         <div class="input-prepend input-append">
-                            <span class="add-on">0</span><input id="max" ng-model="gameState.settings.max" type="range" max="1000" /><span class="add-on">1000</span>
+                            <span class="add-on">0</span><input id="max" step="10" ng-model="gameState.settings.max" type="range" max="1000" /><span class="add-on">1000</span>
                         </div>
                     </div>
                     <div class="control-group">
