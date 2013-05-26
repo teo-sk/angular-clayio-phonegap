@@ -23,6 +23,12 @@ function GameCtrl($scope) {
     //generate number
     var min = parseInt($scope.gameState.settings.min);
     var max = parseInt($scope.gameState.settings.max);
+
+    //add achievement for idiocy
+    if (min > max) {
+      ( new Clay.Achievement( { id: 1531 } ) ).award();
+    }
+
     $scope.gameState.number = min + Math.floor(Math.random() * (max - min + 1)); 
     $scope.gameState.guess = Math.floor(min + (max - min) / 2);
   }
@@ -33,6 +39,18 @@ function GameCtrl($scope) {
       $scope.gameState.ended = true;
       $scope.gameState.hint = "It was " + $scope.gameState.number;
       $scope.gameState.finalScore = $scope.gameState.multiplyer * ($scope.gameState.settings.attempts - $scope.gameState.attempts)
+
+      //add achievement for first try
+      if ($scope.gameState.attempts == 0) {
+        ( new Clay.Achievement( { id: 1530 } ) ).award();
+      }
+
+      //publish on Clay leaderboard
+      var leaderboard = new Clay.Leaderboard( { id: 1508 } );
+      leaderboard.post( { score: $scope.gameState.finalScore }, function( response ) {
+        leaderboard.show();
+      } );
+
     } else {
       if ($scope.gameState.number < $scope.gameState.guess) {
         $scope.gameState.hint = "Try a little bit lower";

@@ -74,6 +74,7 @@
                     </div>
                 </form>
                 <p><a class="btn btn-primary btn-large" ng-click="startGame()">Start Game &raquo;</a></p>
+                <p><a onclick="Clay.Achievement.showAll();">Show achievements</a></p>
             </div>
 
             <div class="hero-unit" ng-show="gameState.started">
@@ -98,6 +99,7 @@
                 <div class="container" ng-show="gameState.ended">
                     <h3 ng-show="gameState.won">Your score is <span ng-bind="gameState.finalScore"></span> points!</h3>
                     <p><a class="btn btn-primary btn-large" onclick="location.reload()">Play Again</a></p>
+                    <p><a onclick="Clay.Achievement.showAll();">Show achievements</a></p>
                 </div>
             </div>
 
@@ -133,5 +135,7 @@
             var tag = document.getElementsByTagName("script")[0]; tag.parentNode.insertBefore(clay, tag);
         } )();
         </script>
+
+        <script src="js/clay-api.js"></script>
     </body>
 </html>
