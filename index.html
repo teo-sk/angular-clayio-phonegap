@@ -78,11 +78,25 @@
             <div class="hero-unit" ng-show="gameState.started">
                 <h1>Game on!</h1>
                 <div class="container">
-                    <code><small>Debug: Number to guess: <span ng-bind="gameState.number"></span>, multiplyer: <span ng-bind="gameState.multiplyer"></span></small></code>
+                    <code ng-show="gameState.debug"><small>Debug: Number to guess: <span ng-bind="gameState.number"></span>, multiplyer: <span ng-bind="gameState.multiplyer"></span></small></code>
+                </div>
+                <div class="container" ng-hide="gameState.ended">
+                    <p>You have <strong><span ng-bind="gameState.settings.attempts - gameState.attempts"></span></strong> attempts left. Your maximum score can be <span ng-bind="gameState.multiplyer * (gameState.settings.attempts - gameState.attempts)"></span> points!</p>
+                    <p>You are guessing a number in range <span ng-bind="gameState.settings.min"></span> and <span ng-bind="gameState.settings.max"></span></p>
+                    <div class="control-group">
+                        <label for="guess">Your guess</label>
+                        <input type="text" ng-model="gameState.guess" class="input-small" />
+                    </div>
+                    <p><a class="btn btn-primary btn-large" ng-click="guess()">Guess</a></p>
                 </div>
                 <div class="container">
-                    <p>You have <span ng-bind="gameState.settings.attempts - gameState.attempts"></span> attempts left. Your maximum score can be <span ng-bind="gameState.multiplyer * (gameState.settings.attempts - gameState.attempts)"></span> points!</p>
-                    <p>You are guessing a number in range <span ng-bind="gameState.settings.min"></span> and <span ng-bind="gameState.settings.max"></span></p>
+                    <span ng-show="gameState.won" class="label label-success">Correct!</span>
+                    <span ng-show="gameState.hint" class="label label-info" ng-bind="gameState.hint"></span>
+                    <span ng-show="gameState.lost" class="label label-important">You failed :(</span>
+                </div>
+                <div class="container" ng-show="gameState.ended">
+                    <h3 ng-show="gameState.won">Your score is <span ng-bind="gameState.finalScore"></span> points!</h3>
+                    <p><a class="btn btn-primary btn-large" onclick="location.reload()">Play Again</a></p>
                 </div>
             </div>
 
