@@ -19,6 +19,8 @@ function GameCtrl($scope) {
     //calculate score multiplyer
     $scope.gameState.multiplyer = ($scope.gameState.settings.max - $scope.gameState.settings.min) / $scope.gameState.settings.attempts;
     //generate number
-    $scope.gameState.number = $scope.gameState.settings.min + Math.floor(Math.random() * ($scope.gameState.settings.max - $scope.gameState.settings.min + 1)); 
+    var min = parseInt($scope.gameState.settings.min);
+    var max = parseInt($scope.gameState.settings.max);
+    $scope.gameState.number = min + Math.floor(Math.random() * (max - min + 1)); 
   }
 }
