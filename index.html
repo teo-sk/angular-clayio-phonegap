@@ -71,6 +71,13 @@
 
             <div class="hero-unit" ng-show="gameState.started">
                 <h1>Game on!</h1>
+                <div class="container">
+                    <code><small>Debug: Number to guess: <span ng-bind="gameState.number"></span>, multiplyer: <span ng-bind="gameState.multiplyer"></span></small></code>
+                </div>
+                <div class="container">
+                    <p>You have <span ng-bind="gameState.settings.attempts - gameState.attempts"></span> attempts left. Your maximum score can be <span ng-bind="gameState.multiplyer * (gameState.settings.attempts - gameState.attempts)"></span> points!</p>
+                    <p>You are guessing a number in range <span ng-bind="gameState.settings.min"></span> and <span ng-bind="gameState.settings.max"></span></p>
+                </div>
             </div>
 
         </div> <!-- /container -->
