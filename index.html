@@ -40,6 +40,12 @@
             </div>
         </div>
 
+        <div class="container range" style="display: none">
+            <div class="alert alert-block">
+                <p><strong>Warning!</strong> You are using a browser that does not support HTML5 form attributes used in this game. Sorry :(</p>
+            </div>
+        </div>
+
         <div class="container" ng-controller="GameCtrl">
 
             <!-- Main hero unit for a primary marketing message or call to action -->
@@ -90,5 +96,13 @@
         <script src="js/vendor/bootstrap.min.js"></script>
 
         <script src="js/game.js"></script>
+
+        <script>
+            $(function(){
+                if (!Modernizr.inputtypes.range) {
+                    $(".range").show();
+                }
+            })
+        </script>
     </body>
 </html>
